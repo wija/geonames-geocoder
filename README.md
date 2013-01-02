@@ -35,13 +35,13 @@ If `geocode` fails to locate the given place names, it will return the empty lis
 
 `geocode` also has four optional arguments:
 
-* #:left-to-right? - defaults to #f because, in most countries, addresses and the like are given with the major admin units last
+* left-to-right? - defaults to #f because, in most countries, addresses and the like are given with the major admin units last
 
-* #:label? - defaults to #t; annotates geonameids with place names (as seen above), which is helpful but which also requires additional database queries
+* label? - defaults to #t; annotates geonameids with place names (as seen above), which is helpful but which also requires additional database queries
 
-* #:short-circuit? - defaults to #t, meaning that the function will return (without looking at the rest of the string) as soon as it is able to return a consistent hierarchy with requested number of levels sought. 
+* short-circuit? - defaults to #t, meaning that the function will return (without looking at the rest of the string) as soon as it is able to return a consistent hierarchy with requested number of levels sought. 
 
-* #:level-sought - defaults to 2 and signifies how deep of a geographical hierarchy should be obtained before short-circuiting. This can range from 0 (country) to 5 (small subnational unit). In the US, states are level 1, and counties are level 2. Not all countries have administrative units at all of these levels. Note that setting level-sought to, say, 2 does not guarantee that the returned hierarchy will only be two levels deep: If the query term that permitted level 2 to be resolved also allowed level 3 to be resolved, that will be returned too. Note also that, the higher the level sought is set, the more likely that the geocoder will find it impossible to establish a hierarchy consistent with all of the query results and thus return the empty list. (This should certainly not be considered a feature, but user beware.)
+* level-sought - defaults to 2 and signifies how deep of a geographical hierarchy should be obtained before short-circuiting. This can range from 0 (country) to 5 (small subnational unit). In the US, states are level 1, and counties are level 2. Not all countries have administrative units at all of these levels. Note that setting level-sought to, say, 2 does not guarantee that the returned hierarchy will only be two levels deep: If the query term that permitted level 2 to be resolved also allowed level 3 to be resolved, that will be returned too. Note also that, the higher the level sought is set, the more likely that the geocoder will find it impossible to establish a hierarchy consistent with all of the query results and thus return the empty list. (This should certainly not be considered a feature, but user beware.)
 
 The `query-geoname` and `query-geoname-with-feature-code` return somewhat more raw results.
 
